@@ -37,10 +37,14 @@ Contains the Google guest agent binary.
 %prep
 %autosetup
 
+echo "hi"
+asfasdf
+er
+
 %build
 for bin in google_guest_agent google_metadata_script_runner; do
   pushd "$bin"
-  GOPATH=%{_gopath} CGO_ENABLED=0 %{_go} build -ldflags="-s -w -X main.version=%{_version}" -mod=readonly
+  GOPATH=%{_gopath} CGO_ENABLED=0 %{_go} GOARCH=arm64 build -ldflags="-s -w -X main.version=%{_version}" -mod=readonly
   popd
 done
 

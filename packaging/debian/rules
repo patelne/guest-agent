@@ -8,6 +8,7 @@ export DH_GOPKG := github.com/GoogleCloudPlatform/guest-agent
 export CGO_ENABLED := 0
 export GOCACHE := /tmp/.cache
 export GO111MODULE := on
+export DEB_BUILD_ARCH := arm64
 
 %:
 	dh $@  --buildsystem=golang --with=golang,systemd
